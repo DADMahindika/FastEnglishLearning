@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
   <html>
     <head>
 	<!..add title..>
@@ -34,7 +23,7 @@
       <!..menu bar..>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
 	    <li><a href="sass.html">Logo</a></li>
-        <li><a href="new.php">Home</a></li>
+        <li><a href="sass.html">Home</a></li>
         <li><a href="badges.html">About</a></li>
         <li><a href="collapsible.html">Contact</a></li>
 		<li><a href="collapsible.html">User</a></li>
@@ -56,7 +45,7 @@
   <!-- Dropdown Structure -->
   <ul id='dropdown1' class='dropdown-content'>
   
-    <li><a href="wordlist.php">new words</a></li>
+    <li><a href="nw.html">new words</a></li>
     <li><a href="Lw.html">learnt words</a></li>
     <!..li class="divider"></li..>
     <li><a href="tsyrv.html">Test your vocabulary</a></li>
@@ -114,52 +103,50 @@
 	<!..add word list..>
 	<div class="card-panel  cyan accent-3"><h6>Word List</h6></div>
 	<ul class="collapsible" data-collapsible="accordion">
-	
-	
-	<?php
-$read = file_get_contents('doc2.txt');
-$new = "";
-for ($i=0; $i < strlen($read); $i++ ){
-	$char = $read[$i];
-	if ($char == " " or $char == "'" or (ord($char) >= ord('a') and ord($char) <= ord('z')) or (ord($char) >= ord('A') and ord($char) <= ord('Z'))){
-		if (ord($char) >= ord('A') and ord($char) <= ord('Z')){
-			$char = chr(ord($char)+32);
-		}
-		$new = $new.$char;
-	}	
-}
-
-$new = preg_replace('/\s+/', ' ', $new);
-$words = explode(" ", $new);
-sort($words);
-
-$pickedWord = $words[0];
-$index = 0;
-$count = 0;
-
-
-$counters = array_count_values($words);
-asort($counters);
-$counters = array_reverse($counters);
-$top250wordsWithCount = array_slice($counters, 0, 250);
-//print_r($top250words);
-$top250words = array_keys($top250wordsWithCount);
-//print_r($top250words);
-
-?>
-
-	
-    <?php foreach($top250words as $key=>$value): ?>
-    <?php $link="https://translate.google.lk/#auto/si/";?>
-		<div class="collection">
-        <a href="https://translate.google.lk/#auto/si/"<?php $value; ?> class="collection-item"><?php echo $value; ?></a>
-		</div>
-       
-    <?php endforeach; ?>
-
-
-    
-   
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="new badge"></span><i class="material-icons"></i>word1</div>
+    <div class="collapsible-body"><p>meaning1</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word2</div>
+    <div class="collapsible-body"><p>meaning2</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word3</div>
+    <div class="collapsible-body"><p>meaning2</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word2</div>
+    <div class="collapsible-body"><p>meaning3</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word4</div>
+    <div class="collapsible-body"><p>meaning4</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word5</div>
+    <div class="collapsible-body"><p>meaning5</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word6</div>
+    <div class="collapsible-body"><p>meaning6</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word7</div>
+    <div class="collapsible-body"><p>meaning7</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word8</div>
+    <div class="collapsible-body"><p>meaning8</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word9</div>
+    <div class="collapsible-body"><p>meaning9</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header green lighten-4"><span class="badge"></span><i class="material-icons"></i>word10</div>
+    <div class="collapsible-body"><p>meaning10</p></div>
+  </li>
   
   
   
@@ -215,15 +202,6 @@ $top250words = array_keys($top250wordsWithCount);
           </div>
         </footer>
 	
-	<script type="text/javascript">
-	
-		var words = document.getElementsByClassName('collection-item');
-		for(i=0;i<words.length;i++){
-			words[i].href=words[i].href+words[i].innerText;
-		}
-		
-	
-	</script>
 	
 	
 		

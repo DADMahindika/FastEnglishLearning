@@ -15,23 +15,26 @@
  <div class="card-panel  transparent"><h4 style="color:#ffffff" >Follow us to learn English Quickly!</h4></div>
 
 
+ 
+ 
   
 
     
       <div class="row">
 	  
+	  <!-- login -->
         <div class="col s12 m6">
-          <div class="card red accent-4 ">
+          <div class="card red accent-4 " style="height:500px;">
             <div class="card-content white-text">
             <span class="card-title">Already have an account?</span>
             <h3 class="card-header">Login</h3>
               
-              
+           
+		<form class="col s12" action="login.php" method="post" >
 		  <div class="row">
-			<form class="col s12">
 			  <div class="row">
 				<div class="input-field col s6">
-				  <input placeholder="name" id="name" type="text" class="validate">
+				  <input placeholder="name" id="name" type="text" class="validate" name="username" >
 				  <label for="name">User Name</label>
 				</div>
 			  </div>
@@ -39,41 +42,39 @@
 		  
 			  <div class="row">
 				<div class="input-field col s6">
-				  <input placeholder="password" id="password" type="password" class="validate">
+				  <input placeholder="password" id="password" type="password" class="validate" name="password">
 				  <label for="password">Password</label>
 				</div>
 			  </div>
 			  
-		   </form>
+		   
 		  </div>
         
 			<div class="card-action">
-			<form action="index.php" method="get">
 				<button class="btn waves-effect waves-light transparent" type="submit" name="action" >Login
 					<i class="material-icons right transparent">send</i>
 				</button>
-			</form>
 			</div>
+			</form>
 
-            </div>
+        </div>
             
           </div>
         
       </div>
       
-            
+    <!-- Signup -->        
        <div class="col s12 m6">
-          <div class="card red accent-4 ">
+          <div class="card red accent-4 " style="height:600px;">
             <div class="card-content white-text">
             <span class="card-title">Do not have an account?</span>
             <h3 class="card-header">Sign Up</h3>
               
-              
+        <form class="col s12" action="signup.php" method="post" >      
 		  <div class="row">
-			<form class="col s12">
 			  <div class="row">
 				<div class="input-field col s6">
-				  <input placeholder="name" id="name" type="text" class="validate">
+				  <input placeholder="name" id="name" type="text" class="validate" name="uname">
 				  <label for="name">Name</label>
 				</div>
 			  </div>
@@ -81,27 +82,26 @@
 		  
 			  <div class="row">
 				<div class="input-field col s6">
-				  <input placeholder="password" id="password" type="password" class="validate">
+				  <input placeholder="password" id="password" type="password" class="validate" name="psw">
 				  <label for="password">Password</label>
 				</div>
 			  </div>
 			  <div class="row">
 				<div class="input-field col s6">
-				  <input placeholder="email" id="email" type="email" class="validate">
+				  <input placeholder="email" id="email" type="email" class="validate" name="email">
 				  <label for="email">Email</label>
 				</div>
 			  </div>
 			  
-		   </form>
-		  </div>
+		   </div>
         
 			<div class="card-action">
-			<form action="index.php" method="get">
-				<button class="btn waves-effect waves-light transparent" type="submit" name="action">Sign Up
+				<button class="btn waves-effect waves-light transparent" type="submit" >Sign Up
 					<i class="material-icons right transparent">send</i>
-				</button>
-			</form>
+				</button>	
+				
 			</div>
+		</form>
 
             </div>
             
@@ -111,6 +111,8 @@
         
     
 </div>
+
+
 
 
 

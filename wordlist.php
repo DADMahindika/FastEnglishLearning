@@ -12,49 +12,48 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  
+	  
+	  
     </head>
 
     <body>
+	
+<?php 
+	session_start(); 
+	$username = $_SESSION['userName'];
+?>
 	
 	<nav>
     <div class="nav-wrapper">
       <!..menu bar..>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-	    <li><a href="sass.html">Logo</a></li>
-        <li><a href="new.php">Home</a></li>
-        <li><a href="badges.html">About</a></li>
-        <li><a href="collapsible.html">Contact</a></li>
-		<li><a href="collapsible.html">User</a></li>
-		<li><a href="collapsible.html">logout</a></li>
+	    <li><a href="home.php">Logo</a></li>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+		<li><a href="index.html">logout</a></li>
 		</ul>
 		
 		<ul class="right hide-on-med-and-down">
-		<li><a href="sass.html"><i class="material-icons">search</i></a></li>
-        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+		<li><p style="margin-top:1px; margin-right:50px;"  ><?php echo $username; ?></p></li>
+		<li><a href="wordlist.php"><i class="material-icons">search</i></a></li>
+        
+        <li><a href="wordlist.php"><i class="material-icons">refresh</i></a></li>
 		</ul>
     </div>
   </nav>
   
-	<!-- Dropdown Trigger -->
-	
-  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
-
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
+  	<div class="card-panel  cyan accent-3"><h6>Learn Most Used Words In English </h6></div>
   
-    <li><a href="nw.html">new words</a></li>
-    <li><a href="Lw.html">learnt words</a></li>
-    <!..li class="divider"></li..>
-    <li><a href="tsyrv.html">Test your vocabulary</a></li>
-	 <li><a href="Pro.html">Progress</a></li>
-  </ul>
-        
+  <ul>
+    <a class="waves-effect waves-light btn" href="wordlist.php"> New Words</a>
+	<a class="waves-effect waves-light btn" href="Lw.php">Learnt Words</a>
+	<a class="waves-effect waves-light btn" href="vocabularyTest.php">Test your vocabulary</a>
+	<a class="waves-effect waves-light btn" href="pr.php">Progress</a>
+   </ul>
   
     
-	
-	
-  
   <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -66,12 +65,13 @@
 	</script>
 	
 	<!..add word list..>
-	<div class="card-panel  cyan accent-3"><h6>Learn Most Used Words In English </h6></div>
+
 	<ul class="collapsible" data-collapsible="accordion">
 	
 	
+	
 	<?php
-$read = file_get_contents('doc2.txt');
+$read = file_get_contents('sub.txt');
 $new = "";
 for ($i=0; $i < strlen($read); $i++ ){
 	$char = $read[$i];
@@ -95,31 +95,35 @@ $count = 0;
 $counters = array_count_values($words);
 asort($counters);
 $counters = array_reverse($counters);
-$top250wordsWithCount = array_slice($counters, 0, 250);
+$top250wordsWithCount = array_slice($counters, 0, 300);
 //print_r($top250words);
 $top250words = array_keys($top250wordsWithCount);
 //print_r($top250words);
 
 ?>
 
-	
+
+<div id="wl" class="collection">
+	<table id="table">
+	<form action="wordlist.php" method="POST">
     <?php foreach($top250words as $key=>$value): ?>
-    <?php $link="https://translate.google.lk/#auto/si/";?>
-		<div class="collection">
-        <a href="https://translate.google.lk/#auto/si/"<?php $value; ?> class="collection-item"><?php echo $value; ?></a>
-		</div>
-       
+    <?php $link="https://translate.google.lk/#auto/si/"?>
+	
+		
+		<tr>
+		<td ><a href="https://translate.google.lk/#auto/si/"<?php $value;?>  class="collection-item" name="fname"><?php echo $value; ?></a></td>
+		
+		<td><input id= <?=$value?> type="button" class="waves-effect waves-light btn" onclick="getId(this.id)" value="Done" /></td>
+		</tr>
+		
+      
     <?php endforeach; ?>
+	</form> 
+	</table>
+	</div>
+	
 
-
-    
-   
-  
-  
-  
-  
-  
-  
+	 
 </ul>
 	
 	
@@ -179,9 +183,33 @@ $top250words = array_keys($top250wordsWithCount);
 	
 	</script>
 	
-	
+	<script>
 		
-	
-      
+		
+		function  getId(element) {
+			
+			//alert(element);
+			
+			//var word = String(element).split(".");
+			//document.getElementById("demo").innerHTML = word[1];
+			var doneWord = String(element);//word[1];
+			alert("word '"+doneWord+"' is saved as a Learnet word");
+			
+			$.post('http://localhost/materialize2.0/insert_words.php', { "doneWord" : doneWord});
+			//$(this).attr("disabled", "disabled");
+			
+			var property = document.getElementById(element);
+			property.style.color = "#333";
+			
+			document.getElementById(doneWord).disabled = 'disabled';
+			
+			
+			
+			
+   		
+		}	
+								
+	</script>
+
     </body>
   </html>

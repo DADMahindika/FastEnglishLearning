@@ -14,40 +14,39 @@
 
     <body>
 	
+<?php 
+	session_start(); 
+	$username = $_SESSION['userName'];
+?>
 	<nav>
     <div class="nav-wrapper">
       <!..menu bar..>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-	    <li><a href="sass.html">Logo</a></li>
-        <li><a href="index.php">Home</a></li>
+	    <li><a href="home.php">Logo</a></li>
+        <li><a href="home.php">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
-		<li><a href="collapsible.html">User</a></li>
-		<li><a href="login.html">logout</a></li>
+		<li><a href="index.html">logout</a></li>
 		</ul>
 		
 		<ul class="right hide-on-med-and-down">
-		<li><a href="sass.html"><i class="material-icons">search</i></a></li>
-        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-        <li><a href="index.php"><i class="material-icons">refresh</i></a></li>
+		<li><p style="margin-top:1px; margin-right:50px;"  ><?php echo $username; ?></p></li>
+		<li><a href="index.php"><i class="material-icons">search</i></a></li>
+        
+        <li><a href="home.php"><i class="material-icons">refresh</i></a></li>
 		</ul>
     </div>
   </nav>
-  <div class="card-panel  purple lighten-2"><h4>Follow us to learn English Quickly!</h4></div>
+  <div class="card-panel  purple lighten-2"><h4 style="color:#ffffff">Follow us to learn English Quickly!</h4></div>
   
-	<!-- Dropdown Trigger -->
+ 
 	
-  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
-
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-  
-    <li><a href="wordlist.php">new words</a></li>
-    <li><a href="Lw.html">learnt words</a></li>
-    <!..li class="divider"></li..>
-    <li><a href="tsyrv.html">Test your vocabulary</a></li>
-	 <li><a href="Pro.html">Progress</a></li>
-  </ul>
+ <ul>
+    <a class="waves-effect waves-light btn" href="wordlist.php"> New Words</a>
+	<a class="waves-effect waves-light btn" href="Lw.php">Learnt Words</a>
+	<a class="waves-effect waves-light btn" href="testvocabulary.html">Test your vocabulary</a>
+	<a class="waves-effect waves-light btn" href="pr.php">Progress</a>
+   </ul>
         
   
     
@@ -109,20 +108,8 @@
               <span class="card-title">About Us</span>
 			  <p> </p>
 			  <br><br>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-			  <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <p>Welcome to fast English learning website.We are always here to help you to improve your English knowledge without having boring.This website always helps you to improve your vocabulary knowledge.Whether you are a kid,student,undergraduate,teenager or adult, you can join with us to Learn English.This is free of charge for anyone.</p>
+			  <p>English is increasingly the language of choice in today’s social and business environments. English speaking and comprehension skills can help fulfil the aspirations of millions of people.Come and join with us and atleast try for once.Then you can understand our difference.</p>
 			  
             </div>
             
